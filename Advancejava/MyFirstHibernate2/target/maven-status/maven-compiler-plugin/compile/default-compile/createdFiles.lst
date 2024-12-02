@@ -1,0 +1,4 @@
+com\demo\test\TestStudentMapping.class
+com\demo\test\TestStudProdAnnotation.class
+com\demo\beans\Student.class
+com\demo\beans\Product.class

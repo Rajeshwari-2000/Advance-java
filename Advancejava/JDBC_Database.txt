@@ -1,0 +1,394 @@
+Microsoft Windows [Version 10.0.19045.5131]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\IET>mysql -h 198.162.10.127 -h 3306 -u dac103 -p
+Enter password: *******
+ERROR 2005 (HY000): Unknown MySQL server host '3306' (11001)
+
+C:\Users\IET>mysql --host 192.168.10.127 --port 3306 --user=dac103 --password=welcome
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1055
+Server version: 8.1.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use dac103;
+Database changed
+mysql> show tables;
++------------------------+
+| Tables_in_dac103       |
++------------------------+
+| a                      |
+| agent                  |
+| andor                  |
+| b                      |
+| baseview               |
+| batch_students         |
+| blanktablea            |
+| blanktableb            |
+| blog                   |
+| bonus                  |
+| books                  |
+| candidate              |
+| client                 |
+| coalesce               |
+| comments               |
+| company                |
+| course                 |
+| course_batches         |
+| course_modules         |
+| customer               |
+| customers              |
+| demodept1              |
+| demodept2              |
+| dept                   |
+| dept1                  |
+| docs                   |
+| doctor                 |
+| doctorvisits           |
+| dummy                  |
+| duplicate              |
+| emp                    |
+| emp1                   |
+| emp2                   |
+| emp_attendance         |
+| emp_cards              |
+| emp_phone              |
+| empj                   |
+| empview                |
+| envelope               |
+| eview                  |
+| f                      |
+| faculty                |
+| faculty_address        |
+| faculty_phone          |
+| faculty_qualifications |
+| food                   |
+| fullname               |
+| hobby                  |
+| item                   |
+| job_list               |
+| key_parts              |
+| labtestlist            |
+| leadtable              |
+| licence                |
+| location               |
+| log                    |
+| mass_table             |
+| medicinelist           |
+| menucard               |
+| modules                |
+| nearest                |
+| new                    |
+| newbooks               |
+| newview                |
+| nullif                 |
+| numbers                |
+| numberstring           |
+| ord                    |
+| orderdetails           |
+| orders                 |
+| overtime               |
+| patient                |
+| phonecall              |
+| pivot_table            |
+| plumber                |
+| plumber_service_map    |
+| points                 |
+| price                  |
+| product                |
+| product_sales          |
+| products               |
+| quarterly_revenue      |
+| r                      |
+| r1                     |
+| r2                     |
+| races                  |
+| regexpr                |
+| replacedept            |
+| revenue                |
+| rockets                |
+| runners                |
+| runningserver          |
+| sales                  |
+| sales_channel          |
+| salespeople            |
+| salesperson            |
+| salgrade               |
+| server                 |
+| service                |
+| seta                   |
+| setb                   |
+| shop                   |
+| softdrink              |
+| sort                   |
+| sourcenames            |
+| stadium                |
+| states                 |
+| station                |
+| status                 |
+| stringnumber           |
+| student                |
+| student_address        |
+| student_cards          |
+| student_order          |
+| student_phone          |
+| student_qualifications |
+| tablea                 |
+| tableaa                |
+| tableb                 |
+| tablebb                |
+| targetnames            |
+| tasks                  |
+| temp                   |
+| temp1                  |
+| traintimetable         |
+| transactions           |
+| vote_response          |
+| votes                  |
+| warehouse              |
+| x                      |
+| yearly_revenue         |
+| z                      |
++------------------------+
+132 rows in set (0.01 sec)
+
+mysql> desc newbooks;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| ID       | int         | NO   | PRI | NULL    | auto_increment |
+| bookName | varchar(45) | YES  |     | NULL    |                |
+| Type     | varchar(45) | YES  |     | NULL    |                |
+| Cost     | int         | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.07 sec)
+
+mysql> select * from newbooks;
++----+------------+-----------+------+
+| ID | bookName   | Type      | Cost |
++----+------------+-----------+------+
+|  1 | Redis      | Paperback |  850 |
+|  2 | Redis      | Paperback |  850 |
+|  3 | JavaScript | Paperback |  700 |
+|  4 | JavaScript | Paperback |  700 |
+|  5 | Hbase      | Paperback |  760 |
+|  7 | HTML       | Paperback |  900 |
+|  9 | CSS        | Paperback |  740 |
++----+------------+-----------+------+
+7 rows in set (0.13 sec)
+
+mysql> select * from newbooks;
++----+------------+-----------+------+
+| ID | bookName   | Type      | Cost |
++----+------------+-----------+------+
+|  1 | Redis      | Paperback |  850 |
+|  2 | Redis      | Paperback |  850 |
+|  3 | JavaScript | Paperback |  700 |
+|  4 | JavaScript | Paperback |  700 |
+|  5 | Hbase      | Paperback |  760 |
+|  7 | HTML       | Paperback |  900 |
+|  9 | CSS        | Paperback |  740 |
+| 10 | DotNet     | Backpaper |  920 |
++----+------------+-----------+------+
+8 rows in set (0.00 sec)
+
+mysql> select * from newbooks;
++----+----------------+-----------+------+
+| ID | bookName       | Type      | Cost |
++----+----------------+-----------+------+
+|  1 | Redis          | Paperback |  850 |
+|  2 | Redis          | Paperback |  850 |
+|  3 | JavaScript     | Paperback |  700 |
+|  4 | JavaScript     | Paperback |  700 |
+|  5 | Hbase          | Paperback |  760 |
+|  7 | HTML           | Paperback |  900 |
+|  9 | CSS            | Paperback |  740 |
+| 10 | DotNet         | Backpaper |  920 |
+| 11 | Web Technology | Backpaper | 1020 |
++----+----------------+-----------+------+
+9 rows in set (0.00 sec)
+
+mysql> Source C:\Users\IET\Desktop\102_103\java.sql
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where some_column = inputparam;
+end' at line 9
+mysql> Source C:\Users\IET\Desktop\102_103\java.sql
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where some_column = inputparam;
+end' at line 6
+mysql> Source C:\Users\IET\Desktop\102_103\java.sql
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where result = inputparam;
+end' at line 6
+mysql> CREATE TABLE my_table (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(100) NOT NULL,
+    ->     age INT NOT NULL
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc my_table;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int          | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(100) | NO   |     | NULL    |                |
+| age   | int          | NO   |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> Source C:\Users\IET\Desktop\102_103\java.sql
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> CALL getcnt(30, @user_count);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT @user_count AS UserCount;
++-----------+
+| UserCount |
++-----------+
+|         0 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO my_table (name, age) VALUES ('Alice', 30);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO my_table (name, age) VALUES ('Bob', 25);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO my_table (name, age) VALUES ('Charlie', 35);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO my_table (name, age) VALUES ('David', 40);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> CALL getcnt(30, @user_count);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT @user_count AS UserCount;
++-----------+
+| UserCount |
++-----------+
+|         3 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select * from my_table;
++----+---------+-----+
+| id | name    | age |
++----+---------+-----+
+|  1 | Alice   |  30 |
+|  2 | Bob     |  25 |
+|  3 | Charlie |  35 |
+|  4 | David   |  40 |
++----+---------+-----+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO my_table (name, age) VALUES ('rock', 50);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT @user_count AS UserCount;
++-----------+
+| UserCount |
++-----------+
+|         3 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> Source C:\Users\IET\Desktop\102_103\java.sql
+ERROR 1304 (42000): PROCEDURE getcnt already exists
+mysql> CALL getcnt(30, @user_count);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT @user_count AS UserCount;
++-----------+
+| UserCount |
++-----------+
+|         4 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select * from my_table;
++----+---------+-----+
+| id | name    | age |
++----+---------+-----+
+|  1 | Alice   |  30 |
+|  2 | Bob     |  25 |
+|  3 | Charlie |  35 |
+|  4 | David   |  40 |
+|  5 | rock    |  50 |
++----+---------+-----+
+5 rows in set (0.00 sec)
+
+mysql> CREATE TABLE user (
+    ->     uname VARCHAR(50) NOT NULL,
+    ->     password VARCHAR(50) NOT NULL,
+    ->     role VARCHAR(50) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> INSERT INTO user (uname, password, role) VALUES
+    -> ('admin', 'admin123', 'administrator'),
+    -> ('user1', 'user123', 'user'),
+    -> ('user2', 'pass123', 'user');
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> Source C:\Users\IET\Desktop\102_103\Callable.sql
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> CALL GetUser ('admin', 'admin123');
++-------+----------+---------------+
+| uname | password | role          |
++-------+----------+---------------+
+| admin | admin123 | administrator |
++-------+----------+---------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from user;
++-------+----------+---------------+
+| uname | password | role          |
++-------+----------+---------------+
+| admin | admin123 | administrator |
+| user1 | user123  | user          |
+| user2 | pass123  | user          |
++-------+----------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> ('user3', 'pass456', 'user');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''user3', 'pass456', 'user')' at line 1
+mysql> INSERT INTO user (uname, password, role) VALUES('user3','pass567','user')
+    -> ;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from user;
++-------+----------+---------------+
+| uname | password | role          |
++-------+----------+---------------+
+| admin | admin123 | administrator |
+| user1 | user123  | user          |
+| user2 | pass123  | user          |
+| user3 | pass567  | user          |
++-------+----------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from user;
++-------+----------+---------------+
+| uname | password | role          |
++-------+----------+---------------+
+| admin | admin123 | administrator |
+| user1 | user123  | user          |
+| user2 | pass123  | user          |
+| user3 | pass567  | user          |
++-------+----------+---------------+
+4 rows in set (0.00 sec)
+
+mysql>

@@ -1,0 +1,4 @@
+com\demo\beans\Faculty.class
+com\demo\test\TestOneToOneLazyFetch.class
+com\demo\test\TestOneToOne.class
+com\demo\beans\Course.class
